@@ -11,7 +11,7 @@
 - 프로젝트 빌드
 > npm run build
 - 빌드 후 content/content.js 파일 수정
-> build/static 하위에 css, js 폴더에 있는 main.\*.js와 main.\*.css는 빌드 시 마다 다르게 생서됨으로 빌드 후 content/content.js에서 값을 변경해야 함.
+> build/static 하위에 css, js 폴더에 있는 main.\*.js와 main.\*.css는 빌드 시 마다 다르게 생성됨으로 빌드 후 content/content.js에서 값을 변경해야 함.
 
 > main.a383009d.css , main.828ceaa0.js
 
