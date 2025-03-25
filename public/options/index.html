@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색 결과 사이드바 옵션</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+    .container {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #status {
+      margin-top: 10px;
+      text-align: center;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>옵션 설정</h1>
+    <form id="optionsForm">
+      <label for="dataSource">데이터 소스 선택:</label>
+      <select id="dataSource" name="dataSource">
+        <option value="google">구글</option>
+        <option value="naver">네이버</option>
+      </select>
+      <label for="refreshInterval">갱신 주기 (초):</label>
+      <input type="number" id="refreshInterval" name="refreshInterval" min="1" value="10">
+      <button type="submit">설정 저장</button>
+    </form>
+    <div id="status"></div>
+  </div>
+  <script>
+    // 옵션 저장 기능 구현
+    document.getElementById('optionsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const dataSource = document.getElementById('dataSource').value;
+      const refreshInterval = document.getElementById('refreshInterval').value;
+      // Chrome storage를 이용하여 옵션 저장
+      chrome.storage.sync.set({
+        dataSource: dataSource,
+        refreshInterval: refreshInterval
+      }, function() {
+        const status = document.getElementById('status');
+        status.textContent = '설정이 저장되었습니다.';
+        setTimeout(() => {
+          status.textContent = '';
+        }, 2000);
+      });
+    });
+
+    // 옵션 불러오기
+    document.addEventListener('DOMContentLoaded', function() {
+      chrome.storage.sync.get(['dataSource', 'refreshInterval'], function(items) {
+        if (items.dataSource) {
+          document.getElementById('dataSource').value = items.dataSource;
+        }
+        if (items.refreshInterval) {
+          document.getElementById('refreshInterval').value = items.refreshInterval;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

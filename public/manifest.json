@@ -1,25 +1,39 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
+  "manifest_version": 3,
+  "name": "검색 결과 사이드바 확장 프로그램",
+  "version": "1.0",
+  "description": "구글 검색 결과 우측에 데이터 분석 기반 재정렬 결과를 표시하는 확장 프로그램",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.google.com/*"
+  ],
+  "web_accessible_resources": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "resources": [
+        "static/js/*.js",
+        "static/css/*.css",
+        "renderSidebarCall.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/search*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "options/index.html"
+  }
 }

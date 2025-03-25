@@ -1,17 +1,29 @@
+// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Sidebar from './components/Sidebar';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// 전역 함수로 renderSidebar를 정의합니다.
+window.renderSidebar = function (mountNode) {
+  if (!mountNode) {
+    console.error("renderSidebar: container not found.");
+    return;
+  }
+  const root = ReactDOM.createRoot(mountNode);
+  root.render(
+    <React.StrictMode>
+      <Sidebar />
+    </React.StrictMode>
+  );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// 기본 렌더링이 필요한 경우 (옵션)
+const container = document.getElementById('root');
+if (container) {
+  const root = ReactDOM.createRoot(container);
+  root.render(
+    <React.StrictMode>
+      <Sidebar />
+    </React.StrictMode>
+  );
+}

@@ -1,0 +1,78 @@
+/* Sidebar.css */
+#custom-sidebar .sidebar-container {
+  padding: 20px !important;
+  overflow-y: auto !important;
+  height: 100% !important;
+  background-color: red !important;
+  border: 3px solid blue !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  color: #333 !important;
+}
+
+#custom-sidebar .sidebar-title {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  margin-bottom: 20px !important;
+  text-align: center !important;
+  border-bottom: 2px solid #ddd !important;
+  padding-bottom: 10px !important;
+}
+
+#custom-sidebar .sidebar-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#custom-sidebar .sidebar-item {
+  background-color: #fff !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  padding: 15px !important;
+  margin-bottom: 15px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+#custom-sidebar .sidebar-item-title {
+  margin: 0 0 8px !important;
+  font-size: 20px !important;
+}
+
+#custom-sidebar .sidebar-item-reason {
+  font-size: 16px !important;
+  margin: 0 0 12px !important;
+  color: #666 !important;
+}
+
+#custom-sidebar .sidebar-buttons {
+  display: flex !important;
+  gap: 10px !important;
+}
+
+#custom-sidebar .sidebar-button {
+  flex: 1 !important;
+  padding: 10px !important;
+  font-size: 14px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+#custom-sidebar .like-button {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+
+#custom-sidebar .like-button:hover {
+  background-color: #45a049 !important;
+}
+
+#custom-sidebar .dislike-button {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+#custom-sidebar .dislike-button:hover {
+  background-color: #da190b !important;
+}
