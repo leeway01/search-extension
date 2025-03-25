@@ -1,12 +1,19 @@
 1. 리포지토리 클론 및 설치
-- 터미널(또는 Git Bash)을 열고 리포지토리를 클론합니다.
-    git clone https://github.com/leeway01/search-extension.git
-    cd search-extension
-- 의존성을 설치
-    npm install
+- 터미널(또는 Git Bash) 리포지토리 클론
+> git clone https://github.com/leeway01/search-extension.git
+
+> cd search-extension
+
+- 의존성 설치
+> npm install
+
 2. 프로덕션 빌드 생성
 - 프로젝트 빌드
-    npm run build
+> npm run build
+- 빌드 후 content/content.js 파일 수정
+> build/static 하위에 css, js 폴더에 있는 main.\*.js와 main.\*.css는 빌드 시 마다 다르게 생서됨으로 빌드 후 content/content.js에서 값을 변경해야 함.
+
+> main.a383009d.css , main.828ceaa0.js
 
 3. Chrome 확장 프로그램에 적용
 - Chrome 브라우저에서 주소창에 chrome://extensions 를 입력하고 엔터를 누릅니다.
